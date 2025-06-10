@@ -1,7 +1,6 @@
+baseurl: "/subsurface-scattering"
+remote_theme: piharpi/jekyll-klise
+
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
-
-remote_theme: piharpi/jekyll-klise
-
-baseurl: "/subsurface-scattering"
