@@ -1,3 +1,5 @@
-gem "jekyll", "~> 4.3"
+source "https://rubygems.org"
+
+gem "jekyll", "~> 4.4.1"
 gem "jekyll-feed"
 gem "jekyll-remote-theme"
