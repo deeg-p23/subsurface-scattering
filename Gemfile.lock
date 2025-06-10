@@ -1,5 +1,4 @@
 GEM
-  remote: https://rubygems.org/
   specs:
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
@@ -43,8 +42,6 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
-    jekyll-feed (0.17.0)
-      jekyll (>= 3.7, < 5.0)
     jekyll-remote-theme (0.4.3)
       addressable (~> 2.0)
       jekyll (>= 3.5, < 5.0)
@@ -75,9 +72,6 @@ GEM
     rouge (4.5.2)
     rubyzip (2.4.1)
     safe_yaml (1.0.5)
-    sass-embedded (1.89.2)
-      google-protobuf (~> 4.31)
-      rake (>= 13)
     sass-embedded (1.89.2-x64-mingw-ucrt)
       google-protobuf (~> 4.31)
     terminal-table (3.0.2)
@@ -90,8 +84,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  jekyll (~> 4.3)
-  jekyll-feed
   jekyll-remote-theme
 
 BUNDLED WITH
