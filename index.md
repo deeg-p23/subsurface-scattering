@@ -5,7 +5,7 @@ layout: default
 ---
 
 # Introduction
-Hero Image: Stanford Dragon w/ a skin-like BSSRDF
+"Hero" Image: Stanford Dragon w/ a skin-like BSSRDF
 
 # Methods
 In its current state, the BSSRDF model strictly computes the dipole diffusion approximation [1], with which the throughput is multiplied, and the radiance reaccumulates; all of which occurs after accumulation by a BXDF evaluation.
