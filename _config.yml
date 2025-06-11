@@ -1,6 +1,6 @@
 baseurl: /subsurface-scattering
 url: https://deeg-p23.github.io
-remote_theme: jekyll-theme-klise
+remote_theme: piharpi/jekyll-klise@9c0c68d
 
 plugins:
   - jekyll-remote-theme
