@@ -1,1 +1,1 @@
-gem "jekyll-remote-theme"
+gem "klise", github: "piharpi/jekyll-klise", ref: "9c0c68d"
