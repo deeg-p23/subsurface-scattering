@@ -13,7 +13,9 @@ layout: default
   "Hero" Image, Skin Dragon
 </p>
 
-As a personal goal for the end of this course, I aim to learn how to model different forms of light transport. This particular project kicks this journey off by implementing **subsurface scattering**, with the primary motivation of being able to model the translucency of materials like skin, and the glossiness on materials like marble. The implementation is based on the BSSRDF model proposed by Jensen et. al (2001), approximating dipole diffusion to compute outgoing radiance after multiple bounces under the local surface of a given intersection.
+As a personal goal for the end of this course, I aim to learn how to model different forms of light transport. This particular project kicks this journey off by implementing **subsurface scattering**, with the primary motivation of being able to model the translucency of materials like skin, and the glossiness on materials like marble. The implementation is based on the BSSRDF model proposed by Jensen et. al (2001), approximating dipole diffusion to compute outgoing radiance after multiple bounces under the local surface of a given intersection. 
+
+The above image showcases the effect of subsurface scattering through smooth skin.
 
 # Methods
 In its current state, the BSSRDF model strictly computes the dipole diffusion approximation [1], with which the throughput is multiplied, and the radiance reaccumulates; all of which occurs after accumulation by a BXDF evaluation.
@@ -26,8 +28,33 @@ Getting the appropriate end PDF involves accounting for the probability of the a
 
 In addition to the project's primary implementations, tinyobjloader was also included to collect triangle data from .obj files and instantiate Triangle objects, in the same vein as the .test files handle instancing and buffeirng geometry data.
 
+# Development
+
+My original implementation was written as essentially an in-sequence read of just the original 2001 paper. A rapid-fire approach like that definitely caused more headaches than it was worth, compared to taking a step back and assessing other guides to get a better overview on the subject as I did now.
+
+I started with a backlit version of the original dragon scene from homework 3. I seemed to have gotten the diffuse approximation generally correct (lighting bleeding through faces opposite to the light source), the PDF was blown to immensely low values. I also made a gross assumption that a BXDF material was entirely replaceable with a BSSRDF, so this may have been another issue during the early stage of the project.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f0b00085-2792-4806-a978-17d57b2539c6" width="45%" style="display:inline-block;"/>
+  <img src="https://github.com/user-attachments/assets/b6141043-8856-43a8-85c1-19b282615a1d" width="45%" style="display:inline-block;"/>
+</p>
+<p align="center">
+  Somewhat of a noir look.
+</p>
+
+I also hadn't pieced together the requirement of SSS samples, so my radiance was initially tied to the quantity of Monte Carlo samples made, which obviously made the renders nastily brighter and more saturated.
+
+Eventually, I got to a stage where I resolved those misinterpretations of the model. Outstanding tasks at this point were to fix artifacts from shadow and BSSRDF ray cast issues, and to make use of the aforementioned sampling methods rather than only disk and uniform sampling.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/bc244dc5-0ad3-46ba-a4d9-7109908d0c59" width="45%" style="display:inline-block;"/>
+</p>
+<p align="center">
+  A Paper Dragon?
+</p>
+
 # Results
-Since only the diffuse approximation was implemented, I chose to model as much as I could that capitalized on the properties of such a BSSRDF. I had a particular interest in rendering scenes that showcased the illuminatory effect translucent objects give under direct lighting.
+Since only the diffuse approximation was properly implemented, I chose to model as much as I could that capitalized on the properties of such a BSSRDF. I had a particular interest in rendering scenes that showcased the illuminatory effect translucent objects give under direct lighting.
 
 The following renders showcase the same dragon with opposed diffuse and specular colors, one reddish and one blueish. Most importantly however, the Hot dragon uses a GGX BRDF with a roughness of 1, and a BSSRDF that has high absorption. The Icy dragon uses a phong BRDF with a shininess of 100, and a BSSRDF that has high scattering.
 
@@ -68,7 +95,7 @@ Lastly, here's another angle of the Skin Dragon with slightly different properti
 # Postmortem
 There's certainly a lot left for me to continue from where I left off here.
 
-The most (visually) important task on the to-do list though is giving the single scattering term another shot for this model. An attempt was made, but the term had caused some artifacts along sharper faces, as in the following render.
+The most (visually) important task on the to-do list though is giving the single scattering term another shot for this model, to hopefully soon present a neat looking statue. An attempt was made, but the term had caused some artifacts along sharper faces, as in the following render.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e16cc25d-1ec1-4505-941a-fae57ea7e642" width="45%" style="display:inline-block;"/>
