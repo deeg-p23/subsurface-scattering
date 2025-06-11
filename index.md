@@ -7,7 +7,7 @@ layout: default
 # Introduction
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/5d0df5a8-842c-40c2-b850-f7fd0b4f48f9" width="60%"/>
+  <img src="https://github.com/user-attachments/assets/5d0df5a8-842c-40c2-b850-f7fd0b4f48f9" width="100%"/>
 </p>
 <p align="center">
   "Hero" Image, Skin Dragon
