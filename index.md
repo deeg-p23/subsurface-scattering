@@ -112,6 +112,8 @@ Though I wish I could have setup a more varied gallery of renders and materials,
 
 Thanks!
 
+- Diego Pereyra
+
 # References
 Unnumbered sources are not specifically referenced anywhere in this document, but are acknowledged as used during the course of this project.
 ### Paper(s)
